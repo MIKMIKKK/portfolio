@@ -36,3 +36,21 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Déploiement sur GitHub Pages
+
+Ce dépôt est configuré pour être déployé sur GitHub Pages sous le nom de dépôt `portfolio`.
+
+- Le champ `base` de Vite est réglé à `/portfolio/` dans `vite.config.js` pour que les assets soient servis correctement.
+- Un workflow GitHub Actions (`.github/workflows/deploy.yml`) build et déploie automatiquement la branche `main` sur Pages lorsque vous poussez.
+
+Pour déployer localement :
+
+```sh
+# build
+npm run build
+
+# puis servir le dossier dist avec un serveur static (par ex. `npx serve dist`)
+```
+
+Poussez simplement sur `main` et l'action GitHub se chargera du reste.

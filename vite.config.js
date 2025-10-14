@@ -10,6 +10,8 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  // Base must match the repository name when deploying to GitHub Pages
+  base: '/portfolio/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
