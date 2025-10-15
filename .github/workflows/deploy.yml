@@ -2,7 +2,7 @@ name: Deploy Vue app to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # ou "master" selon ton dépôt
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -18,22 +18,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout 
         uses: actions/checkout@v4
 
-      - name: Setup Node.js ⚙️
+      - name: Setup Node.js 
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies 📦
+      - name: Install dependencies 
         run: npm ci
 
       - name: Build project 🏗️
         run: npm run build
 
-      - name: Upload artifact ⬆️
+      - name: Upload artifact ⬆
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -46,6 +46,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages 🚀
+      - name: Deploy to GitHub Pages 
         id: deployment
         uses: actions/deploy-pages@v4
