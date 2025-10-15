@@ -87,7 +87,7 @@ export const projects = [
   {
     slug: 'lamarche',
     title: 'Lamarche',
-    tagline: 'Marketplace locale connectée',
+    tagline: 'Média contre le cyberharcelement',
     description: `Média contre le cyberharcelement`,
     role: 'UX / UI / Intégration',
   year: '2024',
