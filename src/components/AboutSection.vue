@@ -3,7 +3,7 @@
     <div class="inner">
       <header class="about-head">
         <h2 class="gradient-title">À propos</h2>
-        <p class="intro">Je conçois et développe des interfaces performantes et raffinées, avec une obsession pour la fluidité, la cohérence visuelle et l’impact produit.</p>
+  <p class="intro">Étudiant en 3e année, je recherche une alternance en développement web. J’aime concevoir des interfaces performantes et maintenables (Vue, Laravel).</p>
       </header>
       <div class="grid">
         <div class="panel">
@@ -19,7 +19,6 @@
         </div>
         <div class="panel">
           <h3 class="panel-title">Soft skills</h3>
-          <h4 class="soft-title">Soft skills</h4>
           <ul class="soft-list">
             <li>Travail en équipe</li>
             <li>Adaptabilité</li>
