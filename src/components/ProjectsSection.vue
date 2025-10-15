@@ -46,7 +46,6 @@ import { computed } from 'vue'
 import ProjectCard from './ProjectCard.vue'
 import { projects as fullProjects } from '../data/projects'
 
-// Charge automatiquement les images depuis src/assets si le nom contient le slug/titre
 const assetsMap = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,svg}', { eager: true, import: 'default' })
 function normalize(str){
   return (str||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,'-').replace(/prenium/g,'premium')

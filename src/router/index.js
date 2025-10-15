@@ -22,7 +22,6 @@ const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
     if (to.hash) {
-      // Attendre le rendu de Home si on vient d'une page projet
       return new Promise(resolve => {
         requestAnimationFrame(() => {
           const el = document.querySelector(to.hash)
@@ -39,12 +38,11 @@ const router = createRouter({
   }
 })
 
-// Nettoyer les animations entre les navigations pour éviter les déclenchements tardifs
 router.beforeEach((to, from, next) => {
   try {
     ScrollTrigger.getAll().forEach(t => t.kill())
     gsap.globalTimeline.clear()
-  } catch(e) { /* ignore */ }
+  } catch(e) { }
   next()
 })
 

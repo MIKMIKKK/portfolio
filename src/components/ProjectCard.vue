@@ -14,7 +14,6 @@ import { ref, onMounted } from 'vue'
 const props = defineProps({ title: String, short: String, image: { type: String, default: '/placeholder.png' } })
 const card = ref(null)
 onMounted(()=>{
-  // future GSAP animation hookup
 })
 </script>
 

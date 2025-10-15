@@ -19,13 +19,11 @@ const route = useRoute()
 
 async function goTo(hash){
   if(route.path !== '/'){
-    // Aller à home avec hash; scrollBehavior gérera le scroll
     await router.push({ path: '/', hash })
   } else {
-    // Sur la home déjà : scroll direct
     const el = document.querySelector(hash)
     if(el) el.scrollIntoView({ behavior:'smooth', block:'start' })
-    history.replaceState(null,'',hash) // mettre à jour l'URL sans rechargement
+    history.replaceState(null,'',hash)
   }
 }
 </script>

@@ -51,8 +51,6 @@ const next = computed(()=> idx.value<projects.length-1 ? projects[idx.value+1] :
 const lightbox = reactive({ open:false, index:0 })
 function open(i){ lightbox.open=true; lightbox.index=i }
 function close(){ lightbox.open=false }
-// Page simplifiée: pas de table des matières ni barre de progression
-// Auto-load images from src/assets matching project slug or title
 const assetsMap = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,svg}', { eager: true, import: 'default' })
 function normalize(str){
   return (str || '')

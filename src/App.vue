@@ -19,7 +19,6 @@ import SiteFooter from './components/SiteFooter.vue'
 <style>
 #app{ min-height:100vh }
 a{ color:var(--color-text) }
-/* Page transitions: only animate entering, keep leaving static to avoid pre-change movement */
 .page-enter-active{ transition: opacity .7s ease, transform .9s cubic-bezier(.4,.2,.1,1); }
 .page-enter-from{ opacity:0; transform: translateY(20px); }
 .page-leave-active{ transition: none !important; }

@@ -28,7 +28,6 @@ const caseEls = ref([])
 function collectCaseEl(el){
   if(el) caseEls.value.push(el)
 }
-// Build dynamic cases from data and assets
 import { projects as fullProjects } from '../data/projects'
 const assetsMap = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,svg}', { eager: true, import: 'default' })
 function normalize(str){
