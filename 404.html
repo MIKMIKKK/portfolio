@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <meta http-equiv="refresh" content="0; url=/portfolio/" />
+    <script>
+      // Client-side redirect preserving path for SPA routing
+      (function() {
+        var path = window.location.pathname.replace(/^\/portfolio/, '');
+        if(path === '/' || path === '') { return; }
+        sessionStorage.setItem('redirect-path', path + window.location.search + window.location.hash);
+        window.location.replace('/portfolio/');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      (function(){
+        const rp = sessionStorage.getItem('redirect-path');
+        if(rp){
+          sessionStorage.removeItem('redirect-path');
+          const target = rp.startsWith('/') ? rp : '/' + rp;
+          if(window.__vite_plugin_vue_router_prefetch__){
+            // optional: could attempt prefetch
+          }
+          history.replaceState(null, '', target);
+        }
+      })();
+    </script>
+  </body>
+</html>

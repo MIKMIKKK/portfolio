@@ -1,3 +1,7 @@
+html {
+  /* Augmente la taille de base pour rendre tout le texte plus lisible */
+  font-size: 18px; /* 16px -> 18px ≈ +12.5% sur les rem */
+}
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
@@ -23,30 +27,22 @@
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  /* Project color system */
+  --color-background: #030F1A; /* main background */
+  --color-text: #ffffff; /* base text */
+  --color-heading-grad-from: #B5DFCA;
+  --color-heading-grad-to: #DB91D2;
+  --color-border: rgba(255,255,255,0.06);
+  --color-border-hover: rgba(255,255,255,0.12);
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
+  --section-gap: 120px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
+    /* keep same dark theme (project uses dark background by default) */
+    --color-background: #030F1A;
+    --color-text: #ffffff;
   }
 }
 
@@ -62,9 +58,7 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+  /* transitions différées (activées après preload) */
   line-height: 1.6;
   font-family:
     Inter,
@@ -79,8 +73,79 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
+  /* Conserve un body size pour les éléments non stylés spécifiquement */
+  font-size: 1rem;
+  /* Échelle fluide augmentée pour une meilleure lisibilité */
+  --step--1: clamp(0.92rem, 0.86rem + 0.22vw, 1.02rem);
+  --step-0: clamp(1.12rem, 1.04rem + 0.34vw, 1.28rem);
+  --step-1: clamp(1.34rem, 1.20rem + 0.62vw, 1.68rem);
+  --step-2: clamp(1.68rem, 1.50rem + 1.20vw, 2.35rem);
+  --step-3: clamp(2.18rem, 1.82rem + 2.00vw, 3.25rem);
+  --step-4: clamp(2.78rem, 2.30rem + 3.20vw, 4.50rem);
+  --step-5: clamp(3.60rem, 2.90rem + 5.10vw, 6.10rem);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fluid type scale */
+h1, .h1 { font-size: var(--step-4); line-height: 1.05; }
+h2, .h2 { font-size: var(--step-3); line-height: 1.1; }
+h3, .h3 { font-size: var(--step-2); line-height: 1.15; }
+p, li { font-size: var(--step-0); }
+small, .text-small { font-size: var(--step--1); }
+
+/* Largeur de lecture confortable */
+p { max-width: 70ch; }
+
+/* Utility: gradient heading */
+.gradient-title {
+  background: linear-gradient(90deg, var(--color-heading-grad-from), var(--color-heading-grad-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Activer transitions après sortie du mode preload */
+html:not(.preload) body {
+  transition: color .5s, background-color .5s;
+}
+
+/* Basic layout */
+main {
+  padding: 3rem 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.project-media {
+  height: 160px;
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.muted {
+  color: rgba(255,255,255,0.7);
 }
