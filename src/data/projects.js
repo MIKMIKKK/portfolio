@@ -16,10 +16,9 @@ export const projects = [
     functionalities: [
       'Calcul de tarif dynamique',
       'Gestion trajets aller / retour',
-      'Paiement (placeholder)',
       'Notifications e-mail',
       'Panneau admin',
-      'Notifications mobile (placeholder)'
+      'Notifications mobile'
     ],
     challenges: [
       'Apprentissage rapide de Vue pour une web app complète',
@@ -77,7 +76,7 @@ export const projects = [
     timeline: '2 mois de développement',
     collaboration: '5 développeurs + 1 designer maquette',
     links: {},
-    stack: ['PHP','(Placeholder Front)','API Meta'],
+    stack: ['symphonie','figma','API Meta'],
     style: {
       colors: ['#DB91D2','#B5DFCA','#030F1A'],
       font: 'Inter'
