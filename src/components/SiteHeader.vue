@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <div class="container">
-      <RouterLink class="brand" to="/">MIKMIKKK</RouterLink>
+      <RouterLink class="brand" to="/"><img src="/src/assets/logo.png" alt="logo"></RouterLink>
       <nav>
         <a href="#home" @click.prevent="goTo('#home')">Accueil</a>
         <a href="#projects" @click.prevent="goTo('#projects')">Projets</a>
